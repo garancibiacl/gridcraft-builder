@@ -30,7 +30,7 @@ console.log("✅ bannersJSON cargado:", bannersJSON);
 });*/
 
 async function cargarBannersJson() {
-  const urls = ['backend/data/banners.json', '/backend/data/cyber-banner.json'];
+  const urls = ['src/data/banners.json', 'src/data/cyber-banner.json'];
   let resultado = [];
 
   for (const url of urls) {
