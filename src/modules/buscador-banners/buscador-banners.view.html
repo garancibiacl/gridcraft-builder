@@ -1,0 +1,290 @@
+
+  <div class="container-fluid p-5  py-5">
+    <div class="row align-items-center justify-content-between py-2">
+
+      <!-- Logo -->
+      <div class="col-md-2 d-flex align-items-center">
+        <img src="/src/modules/buscador-banners/assets/img/searcho-logo.png" alt="Searcho logo" style="height: 98px;">
+      </div>
+    
+      <!-- Buscador -->
+      <div class="col-md-5">
+        <div class="position-relative"> 
+          <div class="search-wrapper">
+    
+         
+        
+            <div class="input-wrapper align-items-end">
+              <span class="icon-search">
+                <i class="bx bx-search bx-sm"></i>
+              </span>
+            
+              <input
+                type="text"
+                id="buscarBanner"
+                placeholder="Escribe nombre de banner Ej. Catálogo OTIN..."
+                oninput="sugerenciasBannerSimple(this.value); activarBotonLimpiar()"
+                onclick="activarBotonLimpiar()"
+              />
+            
+              <button id="btnClearInput"
+                      class="btn btn-sm position-absolute top-50 end-0 translate-middle-y me-2 d-none"
+                      onclick="limpiarInputBuscar()" type="button">❌</button>
+            </div>
+            <div class="divider"></div>
+            <button class="icon-btn home tooltip-btn"  data-bs-toggle="modal" data-bs-target="#modalTransformador">
+              <span class="icon-search"> 
+                <i class="bx bx-message-code bx-sm"></i>
+                <span class="tooltip-text">Agregar tabla a json</span>
+              </span>
+            </button>    
+
+          </div>
+          <div id="sugerencias-banner" class="suggestion-box d-none"></div>
+        </div>
+      </div>
+    
+      <!-- Botón Crear -->
+      <div class="col-md-auto d-flex gap-2">
+        <button class="btn btn-dark d-flex align-items-center gap-2 rounded-pill"
+                data-bs-toggle="modal" data-bs-target="#modalCrearBanner">
+          <i class="bx bx-plus bx-xs"></i> Crear Banner
+        </button>
+      </div>
+    
+    </div>
+    
+
+
+
+
+
+
+
+    
+    
+  <br>
+    <div class="d-flex gap-2 ">
+
+<div class="d-flex justify-content-center">
+  <div class="col-8 ">
+    <div class="position-relative mb-4">
+             <!-- <div class="input-group flex-nowrap">
+              <span class="input-group-text d-flex gap-1" id="addon-wrapping">
+                <i class="bx bx-search-big bx-xs"></i>Buscar Banner</span>
+
+           
+              <input type="text" class="form-control" id="buscarBanner" placeholder="Escribe nombre de banner Ej. Catálogo OTIN..." aria-label="Username" aria-describedby="addon-wrapping" oninput="sugerenciasBannerSimple(this.value); activarBotonLimpiar()"
+              onclick="activarBotonLimpiar()">
+            </div> -->
+
+         
+  
+    <!--BOTON CLOSE INPUT
+      <button id="btnClearInput"
+              class="btn btn-sm  position-absolute top-50 end-0  translate-middle-y me-2 d-none"
+              onclick="limpiarInputBuscar()" type="button">❌</button>-->
+    
+ 
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+<!-- Contenedor de banners recientes -->
+<!-- <div class="col-12 mt-2">
+  <div id="listaRecientes" class="d-flex flex-wrap gap-2"></div>
+</div> -->
+
+
+<div class="col-3 glass-card rounded-3">
+
+  <section class="card-body p-3">
+   
+      <h6 class="card-title d-flex gap-2 fw-normal align-items-center"><i class="bx bx-menu-select bx-sm"></i> Banners recientes Usados</h6>
+  
+    <div class="list-group list-group-flush banner-list" id="listaRecientes">
+      <!-- Se insertarán banners aquí -->
+    
+    </div>
+  </section>
+  
+</div>
+
+
+
+    <div class="col-6 glass-card p-3 rounded-3">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center pb-4">
+        <h6 class="card-title d-flex gap-2 fw-normal align-items-center"><i class="bx bx-picture-in-picture-close bx-sm"></i> Vista previa</h6>
+            <span id="contadorBanners" class="mb-2 badge px-3 rounded-pill">
+              0 banners agregados 🎯
+            </span>
+         
+        </div>
+        <div id="previewHTML" class="preview-scroll text-white  p-4 d-flex flex-column align-items-center justify-content-center" style="min-height: 250px;">
+          <i class="bx bx-image-alt" style="font-size: 4rem; opacity: 0.3;"></i>
+          <p class="mt-2 mb-0 text-white-50">Esperando selección del banner...</p>
+        </div>
+        
+        
+      </div>
+  </div>
+
+  <div class="col-3 glass-card p-3 rounded-3">
+    <div class="card-body">
+    <h6 class="card-title d-flex gap-2 fw-normal align-items-center mb-3"><i class="bx bx-clipboard-code bx-sm"></i> Código HTML</h6>
+    <textarea id="codigoGenerado" class="form-control" rows="8" readonly></textarea>
+    <div class="col-12 d-flex justify-content-end gap-2 mt-3 flex-wrap">
+
+      <!-- Botón Copiar -->
+      <button onclick="copiarCodigo()"
+              class="btn btn-light d-flex align-items-center gap-2 rounded-pill ">
+        <i class="bx bx-copy bx-xs"></i> Copiar Html
+      </button>
+    
+      <!-- Botón Limpiar -->
+      <button onclick="limpiarCamposBanner()"
+              class="btn btn-dark d-flex align-items-center gap-2 rounded-pill tooltip-btn">
+        <i class="bx bx-brush bx-xs"></i> Limpiar Todo
+      </button>
+    
+    </div>
+    
+
+  </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+
+
+
+  </div>
+
+
+
+<!-- Toast container -->
+
+
+
+
+<!-- Modal Editar -->
+<div class="modal fade" id="modalEditarBanner" tabindex="-1" aria-labelledby="modalEditarBannerLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light border border-secondary shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title align-items-center d-flex gap-2" id="modalEditarBannerLabel"> <i class="bx bx-edit-alt bx-sm"></i> Editar Banner</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="bannerIndex">
+        <div class="mb-3">
+          <label for="editHref" class="form-label">URL del enlace</label>
+          <input type="text" class="form-control" id="editHref" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label for="editImg" class="form-label">URL de la imagen</label>
+          <input type="text" class="form-control" id="editImg" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label for="editAlt" class="form-label">Texto ALT</label>
+          <input type="text" class="form-control" id="editAlt" autocomplete="off">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" onclick="guardarCambiosBanner()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalCrearBanner" tabindex="-1" aria-labelledby="modalCrearBannerLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCrearBannerLabel">Crear Nuevo Banner</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input id="nuevoNombre" type="text" class="form-control mb-2" placeholder="Nombre del banner">
+        <input id="nuevoHref" type="text" class="form-control mb-2" placeholder="Enlace (href)">
+        <input id="nuevoImg" type="text" class="form-control mb-2" placeholder="Imagen (src)">
+        <input id="nuevoAlt" type="text" class="form-control mb-2" placeholder="Texto alternativo (alt)">
+      </div>
+      <div class="modal-footer">
+        <button id="guardarNuevoBanner" class="btn btn-light d-flex gap-2 "><i class="bx bx-save bx-sm"></i>Guardar Banner</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Transformador + Guardado JSON -->
+<div class="modal fade" id="modalTransformador" tabindex="-1" aria-labelledby="modalTransformadorLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTransformadorLabel">Transformar tabla HTML y guardar como JSON</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <textarea id="areaHTML" class="form-control bg-black text-white" rows="8" placeholder="Pega aquí la tabla HTML..."></textarea>
+
+        <div class="d-flex justify-content-end gap-2 mt-3">
+          <select id="tipoArchivo" class="form-select w-auto">
+            <option value="normal">📁 banners.json</option>
+            <option value="cyber">💾 cyber-banner.json</option>
+          </select>
+          <button onclick="transformarYGuardarEnBackend()" class="btn btn-success">
+            💾 Transformar y guardar JSON
+          </button>
+          
+        </div>
+
+        <pre id="resultadoJSON" class="mt-3 bg-black text-light p-2 rounded small"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- START Botón flotante AYUDA -->
+<button id="btnAyuda" class="tooltip-btn btn-ayuda" data-bs-toggle="modal" data-bs-target="#modalAyuda" >
+  ?
+  <span class="tooltip-text">Ver guía rápida</span>
+</button>
+
+
+<!-- Modal vacío -->
+<div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="modalAyudaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAyudaLabel">🧭 Guía rápida de uso del Buscador de Banners</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-start" id="contenidoAyuda" style="white-space: pre-wrap; font-size: 0.95rem;">
+        <div class="text-secondary">Cargando contenido...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FIN Botón flotante AYUDA -->
+
+
+<!-- Contenedor de toasts con z-index mayor a Bootstrap modal -->
+<div id="toastContainer" class="position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+</div>
